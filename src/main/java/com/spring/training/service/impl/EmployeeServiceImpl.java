@@ -36,7 +36,16 @@ public class EmployeeServiceImpl implements EmployeeService {
         //return modelMapper.map(repository.save(modelMapper.map(employee, Employee.class)), EmployeeDetailDto.class);
 
         //convert given DTO to Entity
+        //Employee toSave = modelMapper.map(employee, Employee.class);
+        //covert entity to DTO
+        //EmployeeDetailDto dto = modelMapper.map(toSave, EmployeeDetailDto.class);
+
+        //convert given DTO to Entity
         Employee toSave = modelMapper.map(employee, Employee.class);
+
+        //After save, the EmployeeRepository gives us the saved entity and we need to convert back to DTO
+        //Employee resp = repository.save(toSave);
+        //EmployeeDetailDto response = modelMapper.map(resp, EmployeeDetailDto.class);
 
         //After save, the EmployeeRepository gives us the saved entity and we need to convert back to DTO
         EmployeeDetailDto response = modelMapper.map(repository.save(toSave), EmployeeDetailDto.class);
